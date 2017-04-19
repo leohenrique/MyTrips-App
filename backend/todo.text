@@ -1,0 +1,16 @@
+---- App Android to store trips in Ireland + Backend using NodeJs and MongoDB
+
+-- Features
+
+Routes in Gmaps
+Pictures
+Login (facebook, google)
+Add trip
+List of trips - with details
+
+Objects
+Trip
+    Date Start
+    Date End
+    Multiple Photos
+    Coordinates;
