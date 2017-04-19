@@ -1,7 +1,6 @@
 var express = require('express')
 var app = express();
-//var router = express.Router();
-var path = require('path');
+
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
@@ -47,6 +46,31 @@ app.get('/api/trips/:_id', function(request, response){
 app.post('/api/trips', function(request, response){
   var trip = request.body;
   Trip.addTrip(trip, function(err, trip){
+    console.log(err);
+    if (err){
+      throw err;
+    }
+    response.json(trip);
+  });
+});
+
+app.put('/api/trips/:_id', function(request, response){
+  var id = request.params._id;
+  var trip = request.body;
+  Trip.updateTrip(id, trip, {}, function(err, trip){
+    console.log(err);
+    if (err){
+      throw err;
+    }
+    response.json(trip);
+  });
+});
+
+
+app.delete('/api/trips/:_id', function(request, response){
+  var id = request.params._id;
+  Trip.deleteTrip(id, {}, function(err, trip){
+    console.log(err);
     if (err){
       throw err;
     }
